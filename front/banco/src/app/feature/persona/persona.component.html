@@ -1,0 +1,56 @@
+<p>Banco Internacional</p>
+
+<div style="width: 25%;">
+  <input type="text" placeholder="Código" [(ngModel)]="inputValue">
+  <button (click)="getInformation()">Enviar</button>
+</div>
+
+
+<div class="two-column-container">
+  <div class="column">
+    <label for="nombre">Nombre: </label>
+    <input type="text" id="nombre" [(ngModel)]="name" readonly>
+  </div>
+  <div class="column">
+    <label for="edad">Edad: </label>
+    <input type="number" id="edad" [(ngModel)]="yearOld" readonly>
+  </div>
+</div>
+
+<div class="two-column-container">
+  <div class="column">
+    <label for="cuenta">Cuenta: </label>
+    <input type="text" id="cuenta" [(ngModel)]="account" readonly>
+  </div>
+  <div class="column" *ngIf="rol !== 'na'">
+    <label for="cargo">Cargo: </label>
+    <input type="text" id="cargo" [(ngModel)]="rol" readonly>
+  </div>
+</div>
+
+<div class="two-column-container">
+  <div class="column">
+    <label for="saldo">Saldo Actual: </label>
+    <input type="text" id="saldo" [(ngModel)]="balance" readonly>
+  </div>
+  <div class="column">
+  </div>
+</div>
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Tipo</th>
+      <th>Valor</th>
+      <th>Motivo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let movimiento of movimientos">
+      <td>{{ movimiento.tipoMovimiento }}</td>
+      <td>{{ movimiento.valor }}</td>
+      <td>{{ movimiento.motivo }}</td>
+    </tr>
+  </tbody>
+</table>
